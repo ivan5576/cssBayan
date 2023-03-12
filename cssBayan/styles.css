@@ -1,0 +1,193 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 245, 229);
+}
+
+body,
+head,
+section {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    display: block;
+    margin: auto;
+    width: 90%;
+}
+
+@media (min-width: 700px) {
+    section {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px) {
+    section {
+        width: 30%;
+    }
+}
+
+.section-div {
+    background-color: rgb(255, 245, 229);
+}
+
+.section-title {
+    display: inline-block;
+    font-size: 2.5rem;
+    line-height: 2rem;
+    font-weight: 800;
+}
+
+@media (min-width: 700px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+.accordion-item {
+    border-top: 1px solid #e0dfdf;
+}
+
+.accordeon-label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.text-icon-background {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 245, 229);
+    color: blue;
+}
+
+.accordeon-input {
+    appearance: none;
+    margin: 0;
+}
+
+.accordeon-label-text {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+@media (min-width: 700px) {
+    .accordeon-label-text {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordeon-label-text {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+}
+
+.accordeon-label-icon {
+    color: #000;
+    margin-left: auto;
+    opacity: 0;
+    transition: transform 0.5s;
+    font-size: 1.8rem;
+    line-height: 2rem;
+}
+
+@media (min-width: 700px) {
+    .accordeon-label-icon {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordeon-label-icon {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+}
+
+.mem-image {
+    margin: auto;
+    width: 80%;
+    background-color: rgb(255, 245, 229);
+    transition: padding-bottom 0.2s ease-in, max-height 1s ease-in-out;
+    max-height: 0;
+    padding-bottom: 0;
+}
+
+@media (min-width: 700px) {
+    .mem-image {
+        width: 70%;
+    }
+}
+
+/* icons while hover */
+
+@media (hover: hover) {
+    .section-accordion:hover .accordeon-label-icon {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .accordeon-label-icon {
+        opacity: 1;
+    }
+}
+
+/* icon in checked item */
+
+.accordeon-input:checked + .text-icon-background .accordeon-label-icon {
+    transform: rotate(45deg);
+}
+
+/* icon in hover item */
+
+@media (hover: hover) {
+    .accordeon-input:hover + .text-icon-background .accordeon-label-icon {
+        transform: rotate(45deg);
+    }
+}
+
+/* text while hover */
+
+@media (hover: hover) {
+    .section-accordion:hover .accordeon-label-text {
+        color: #000;
+    }
+}
+
+/* text color of checked item */
+
+.accordeon-input:checked + .text-icon-background {
+    color: #000;
+}
+
+/* checked item expands */
+
+.accordeon-input:checked ~ .mem-image {
+    max-height: 100em;
+    padding-bottom: 3em;
+}
+
+/* hover item expands */
+
+@media (hover: hover) {
+    .accordeon-input:hover ~ .mem-image {
+        max-height: 100em;
+        padding-bottom: 3em;
+    }
+}
