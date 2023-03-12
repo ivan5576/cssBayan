@@ -7,6 +7,13 @@ html {
     background-color: rgb(255, 245, 229);
 }
 
+body,
+head,
+section {
+    margin: 0;
+    padding: 0;
+}
+
 section {
     display: block;
     margin: auto;
@@ -23,6 +30,10 @@ section {
     section {
         width: 30%;
     }
+}
+
+.section-div {
+    background-color: rgb(255, 245, 229);
 }
 
 .section-title {
@@ -50,8 +61,15 @@ section {
 
 .accordeon-label {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     cursor: pointer;
+}
+
+.text-icon-background {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 245, 229);
+    color: blue;
 }
 
 .accordeon-input {
@@ -60,8 +78,6 @@ section {
 }
 
 .accordeon-label-text {
-    flex-basis: 80%;
-    color: blue;
     font-size: 2rem;
     line-height: 2rem;
 }
@@ -81,6 +97,7 @@ section {
 }
 
 .accordeon-label-icon {
+    color: #000;
     margin-left: auto;
     opacity: 0;
     transition: transform 0.5s;
@@ -103,9 +120,14 @@ section {
 }
 
 .mem-image {
-    height: 0;
     margin: auto;
     width: 80%;
+    transform: translateY(-100%);
+    visibility: hidden;
+    z-index: -1;
+    background-color: rgb(255, 245, 229);
+    transition: 1s ease-in-out;
+    height: 0;
 }
 
 @media (min-width: 700px) {
@@ -130,14 +152,14 @@ section {
 
 /* icon in checked item */
 
-.accordeon-input:checked ~ .accordeon-label-icon {
+.accordeon-input:checked + .text-icon-background .accordeon-label-icon {
     transform: rotate(45deg);
 }
 
 /* icon in hover item */
 
 @media (hover: hover) {
-    .accordeon-input:hover ~ .accordeon-label-icon {
+    .accordeon-input:hover + .text-icon-background .accordeon-label-icon {
         transform: rotate(45deg);
     }
 }
@@ -152,22 +174,27 @@ section {
 
 /* text color of checked item */
 
-.accordeon-input:checked ~ .accordeon-label-text {
+.accordeon-input:checked + .text-icon-background {
     color: #000;
 }
 
 /* checked item expands */
 
 .accordeon-input:checked ~ .mem-image {
-    height: 100%;
-    padding-bottom: 3vh;
+    transform: translateY(0);
+    visibility: visible;
+    z-index: 0;
+    height: auto;
+    transition: 1s ease-in-out;
 }
 
 /* hover item expands */
 
 @media (hover: hover) {
     .accordeon-input:hover ~ .mem-image {
-        height: 100%;
-        padding-bottom: 3vh;
+        transform: translateY(0);
+        visibility: visible;
+        height: auto;
+        transition: 1s ease-in-out;
     }
 }
