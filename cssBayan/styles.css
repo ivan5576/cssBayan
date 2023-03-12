@@ -2,7 +2,6 @@ html {
     font-family: Helvetica, sans-serif;
     font-weight: 700;
     font-size: 10px;
-    line-height: 1;
     margin: 0;
     padding: 0;
     background-color: rgb(255, 245, 229);
@@ -14,9 +13,35 @@ section {
     width: 90%;
 }
 
+@media (min-width: 700px) {
+    section {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px) {
+    section {
+        width: 30%;
+    }
+}
+
 .section-title {
-    font-size: 1.6rem;
+    display: inline-block;
+    font-size: 2.5rem;
+    line-height: 2rem;
     font-weight: 800;
+}
+
+@media (min-width: 700px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-title {
+        font-size: 3rem;
+    }
 }
 
 .accordion-item {
@@ -37,26 +62,70 @@ section {
 .accordeon-label-text {
     flex-basis: 80%;
     color: blue;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+@media (min-width: 700px) {
+    .accordeon-label-text {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordeon-label-text {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
 }
 
 .accordeon-label-icon {
     margin-left: auto;
     opacity: 0;
     transition: transform 0.5s;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
+}
+
+@media (min-width: 700px) {
+    .accordeon-label-icon {
+        font-size: 1.6rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .accordeon-label-icon {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
 }
 
 .mem-image {
-    display: none;
+    height: 0;
     margin: auto;
     width: 80%;
 }
 
+@media (min-width: 700px) {
+    .mem-image {
+        width: 70%;
+    }
+}
+
 /* icons while hover */
 
-.section-accordion:hover .accordeon-label-icon {
-    opacity: 1;
+@media (hover: hover) {
+    .section-accordion:hover .accordeon-label-icon {
+        opacity: 1;
+    }
+}
+
+@media (hover: none) {
+    .accordeon-label-icon {
+        opacity: 1;
+    }
 }
 
 /* icon in checked item */
@@ -65,10 +134,20 @@ section {
     transform: rotate(45deg);
 }
 
+/* icon in hover item */
+
+@media (hover: hover) {
+    .accordeon-input:hover ~ .accordeon-label-icon {
+        transform: rotate(45deg);
+    }
+}
+
 /* text while hover */
 
-.section-accordion:hover .accordeon-label-text {
-    color: #000;
+@media (hover: hover) {
+    .section-accordion:hover .accordeon-label-text {
+        color: #000;
+    }
 }
 
 /* text color of checked item */
@@ -77,13 +156,18 @@ section {
     color: #000;
 }
 
+/* checked item expands */
+
 .accordeon-input:checked ~ .mem-image {
-    display: flex;
+    height: 100%;
+    padding-bottom: 3vh;
 }
 
+/* hover item expands */
 
-
-.accordeon-input:hover ~ .mem-image {
-    display: flex;
+@media (hover: hover) {
+    .accordeon-input:hover ~ .mem-image {
+        height: 100%;
+        padding-bottom: 3vh;
+    }
 }
-
