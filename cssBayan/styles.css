@@ -122,12 +122,10 @@ section {
 .mem-image {
     margin: auto;
     width: 80%;
-    transform: translateY(-100%);
-    visibility: hidden;
     z-index: -1;
     background-color: rgb(255, 245, 229);
-    transition: 1s ease-in-out;
-    height: 0;
+    transition: max-height 1s ease-in-out;
+    max-height: 0;
 }
 
 @media (min-width: 700px) {
@@ -181,20 +179,13 @@ section {
 /* checked item expands */
 
 .accordeon-input:checked ~ .mem-image {
-    transform: translateY(0);
-    visibility: visible;
-    z-index: 0;
-    height: auto;
-    transition: 1s ease-in-out;
+    max-height: 100em;
 }
 
 /* hover item expands */
 
 @media (hover: hover) {
     .accordeon-input:hover ~ .mem-image {
-        transform: translateY(0);
-        visibility: visible;
-        height: auto;
-        transition: 1s ease-in-out;
+        max-height: 100em;
     }
 }
